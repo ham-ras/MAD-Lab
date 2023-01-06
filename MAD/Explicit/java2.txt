@@ -1,0 +1,26 @@
+package com.example.intent_pass;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity2 extends AppCompatActivity {
+    String fullname;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        Bundle extras = getIntent().getExtras();
+
+        TextView T1 = (TextView)findViewById(R.id.textView);
+        Intent i = getIntent();
+        fullname = i.getStringExtra("message");
+        T1.append(fullname);
+        Toast t = Toast.makeText(this,"Mesasge aagaya",Toast.LENGTH_LONG);
+        t.show();
+        }
+    }

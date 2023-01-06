@@ -1,0 +1,44 @@
+package com.example.allinall;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class CheckBoxes extends AppCompatActivity {
+    Integer total=0;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_box);
+        TextView tv=findViewById(R.id.textView);
+        CheckBox      cb1= (CheckBox) findViewById(R.id.checkBox2);
+        CheckBox      cb2= (CheckBox) findViewById(R.id.checkBox3);
+        CheckBox      cb3= (CheckBox) findViewById(R.id.checkBox4);
+        Button btn =(Button) findViewById(R.id.button2);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Integer total=0;
+             if(   cb1.isChecked()){
+                 total+=10;
+             }
+                if(   cb2.isChecked()){
+                    total+=20;
+                }
+                if(   cb3.isChecked()){
+                    total+=30;
+                }
+    tv.setText(total.toString());
+                Toast.makeText(CheckBoxes.this,total.toString(),Toast.LENGTH_LONG).show();
+            }
+
+
+        });
+    }
+}
